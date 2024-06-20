@@ -3,7 +3,9 @@ import ChatPage from '@/components/ChatPage'
 import { getMessages, getUserProfile } from '@/lib/userdata'
 import React from 'react'
 
-const ChattingPage = async ({params}:{params:{id:string} }) => {
+const ChattingPage = async ({params}:{params:{id:string}}) => {
+  let userProfile = await getUserProfile(params.id);
+  userProfile = JSON.stringify(userProfile);
   
  
   
