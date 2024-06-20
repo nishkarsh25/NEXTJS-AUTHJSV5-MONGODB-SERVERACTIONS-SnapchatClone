@@ -8,5 +8,8 @@ import Link from 'next/link';
 import LogoutButton from './LogoutButton';
 import { auth } from '@/auth';
 
-
+const Navbar = async () => {
+    const authUser = await auth();
+    
+}
 
