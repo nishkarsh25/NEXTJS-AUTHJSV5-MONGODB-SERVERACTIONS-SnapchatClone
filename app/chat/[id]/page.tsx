@@ -9,6 +9,10 @@ const ChattingPage = async ({params}:{params:{id:string}}) => {
   const authUser = await auth();
   const messages = authUser ? await getMessages(authUser?.user?._id, params.id) : [];
  
-  
+  return (
+    <div className = 'w-[72%]'>
+        <ChatPage userProfile={userProfile} messages={messages} authUser={authUser}/>
+    </div>
+  )
 }
 
