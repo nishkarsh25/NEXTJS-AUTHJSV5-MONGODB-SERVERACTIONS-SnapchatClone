@@ -79,3 +79,4 @@ const ChatBody = ({ messages, authUser }: { messages: any, authUser: any }) => {
   )
 }
 
+export default ChatBody
