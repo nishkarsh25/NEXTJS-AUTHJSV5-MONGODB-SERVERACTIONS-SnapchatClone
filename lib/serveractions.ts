@@ -53,4 +53,28 @@ export const sendSnapMessage = async (
     }
 }
 
+export const deleteChatMessages = async (userId:string) => {
+    noStore();
+    try {
+        await connectDB();
+        const authUser = await auth();
+        const user = authUser?.user;
+        if(!user) return ;
 
+        const chat = await Chat.findOne({
+            participants:{$all:[user._id, userId]}
+        });
+        if(!chat) return;
+
+        const messageIdsInString = chat.messages.map((id)=> id.toString());
+
+        await Message.deleteMany({_id:{$in:messageIdsInString}});
+        await Chat.deleteOne({_id:chat._id});
+
+        revalidatePath(`/chat/${userId}`); 
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+    redirect("/chat");
+}
