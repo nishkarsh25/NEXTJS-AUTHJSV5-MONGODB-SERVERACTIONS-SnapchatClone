@@ -14,3 +14,4 @@ const ChatPage = ({userProfile, messages, authUser}:{userProfile:any, messages:a
   )
 }
 
+export default ChatPage
