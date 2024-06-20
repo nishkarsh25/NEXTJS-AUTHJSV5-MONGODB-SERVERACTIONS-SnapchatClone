@@ -64,6 +64,54 @@ const UserDialog = (
     }
     fetchUsers();
   }, [])
-  
+  return (
+    <Dialog open={!!selectedFile}>
+      <DialogContent className="sm:max-w-[425px]" onInteractOutside={close}>
+        <DialogHeader>
+          <Input
+            id="name"
+            className="col-span-3"
+            placeholder='Search user to send?'
+          />
+        </DialogHeader>
+        <div className="grid gap-1 py-4">
+          {
+            users.map((user: UserDocument) => {
+              return (
+                <div
+                  onClick={() => selectedUserHandler(user)}
+                  key={user._id}
+                  className={`flex ${selectedUser?._id === user._id ? 'bg-gray-200' : null} items-center gap-5 cursor-pointer p-2 rounded-md hover:bg-gray-200`}>
+                  <Avatar>
+                    <AvatarImage src={user.profilePhoto} alt="@shadcn" />
+                  </Avatar>
+                  <div>
+                    <h1 className='font-medium'>{user.fullname}</h1>
+                    <p className='text-sm text-gray-500'>@{user.username}</p>
+                  </div>
+                </div>
+              )
+            })
+          }
+          {
+            loading && <div className='mx-auto'><Loader2 className="mr-2 h-4 w-4 animate-spin" /></div>
+          }
+        </div>
+        <DialogFooter>
+          <Button onClick={close} variant={'destructive'}  type="submit">Cancel</Button>
+          {
+            sendMessageLoading ? (
+              <Button>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Please wait
+              </Button>
+            ) : (
+              <Button disabled={!selectedUser || loading} onClick={sendMessageHandler} type="submit">Send <span className='ml-1'><VscSend size={'18px'} /></span></Button>
+            )
+          }
+       </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
 }
 
