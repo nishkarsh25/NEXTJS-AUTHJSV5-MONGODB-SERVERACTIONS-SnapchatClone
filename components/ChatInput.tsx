@@ -13,7 +13,22 @@ const ChatInput = () => {
     const params = useParams<{ id: string }>();
     const receiverId = params.id;
 
-    
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            await sendSnapMessage(
+                inputText,
+                receiverId,
+                "text" 
+            ); 
+            setInputText(""); 
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
     
 }
 
