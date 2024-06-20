@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Dialog, DialogContent } from './ui/dialog';
 
 
-const ChatBody = () => {
+const ChatBody = ({ messages, authUser }: { messages: any, authUser: any }) => {
   
 
   
