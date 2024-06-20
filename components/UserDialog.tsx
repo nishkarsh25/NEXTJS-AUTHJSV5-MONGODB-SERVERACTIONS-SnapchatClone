@@ -32,12 +32,38 @@ const UserDialog = (
   const [loading, setLoading] = useState(false);
   const [sendMessageLoading, setSendMessageLoading] = useState(false);
   const [selectedUser, setSelectedUser] = useState<UserDocument>();
-  
+  const router = useRouter();
 
-  
-  
+  const selectedUserHandler = (user: UserDocument) => {
+    setSelectedUser(user);
+  }
+  const sendMessageHandler = async () => {
+    setSendMessageLoading(true);
+    try {
+      await sendSnapMessage(selectedFile, selectedUser?._id, 'image');
+      router.push(`/chat/${selectedUser?._id}`);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setSendMessageLoading(false);
+    }
+  }
 
-  
+  useEffect(() => {
+    const fetchUsers = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch('/api/chat/getusers');
+        const data = await res.json(); 
+        setUsers(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchUsers();
+  }, [])
   
 }
 
