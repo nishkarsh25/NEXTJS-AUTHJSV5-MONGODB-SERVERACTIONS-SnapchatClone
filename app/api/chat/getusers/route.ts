@@ -15,6 +15,7 @@ export const GET = async () => {
         // });
         return NextResponse.json(users);
     } catch (error) {
-        
+        console.log(error);
+        throw error;
     }
 }
