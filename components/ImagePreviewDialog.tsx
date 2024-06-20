@@ -58,4 +58,4 @@ const ImagePreviewDialog = (
     </Dialog>
   )
 }
-
+export default ImagePreviewDialog;
