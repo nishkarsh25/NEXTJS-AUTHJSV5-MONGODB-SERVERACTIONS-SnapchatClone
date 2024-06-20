@@ -15,4 +15,9 @@ export const readFileAsDataURL = (file: File | Blob): Promise<string> => {
 	});
 };
 
-
+export const formatDate = (inputDate: Date): string => {
+	const date = new Date(inputDate);
+	const options: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
+	const formattedDate: string = date.toLocaleDateString("en-US", options);
+	return formattedDate;
+};
