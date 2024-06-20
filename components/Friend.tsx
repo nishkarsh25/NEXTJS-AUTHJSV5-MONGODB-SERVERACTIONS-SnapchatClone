@@ -9,5 +9,11 @@ import Link from 'next/link';
 
 
 
+const Friend = ({ user }: { user: any }) => { 
+    
+    
+    
 
+    
+}
 
