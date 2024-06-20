@@ -6,5 +6,9 @@ import FriendSkeleton from './FriendSkeleton';
 import { auth } from '@/auth';
 import { Avatar, AvatarImage } from './ui/avatar';
 
+const ChatSidebar = async () => {
+    const authUser = await auth();
 
+    
+}
 
