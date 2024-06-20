@@ -18,6 +18,18 @@ export function EmojiPopover() {
   const popoverRef = useRef<HTMLButtonElement>(null);
   const params = useParams<{ id: string }>();
   const id = params.id;
-  
+  const handleSendEmoji = async (srcUrl: string) => {
+    setLoading(true);
+    try {
+      const blob = await fetch(srcUrl).then((res) => res.blob());
+      const dataUrl = await readFileAsDataURL(blob);
+      await sendSnapMessage(dataUrl, id, "image");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   
 }
