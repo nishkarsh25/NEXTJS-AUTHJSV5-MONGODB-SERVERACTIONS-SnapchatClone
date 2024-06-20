@@ -13,5 +13,5 @@ export interface UserDocument extends UserInterface, Document{
     updatedAt:Date
 }
 
-
+const userModel = new mongoose.Schema<UserDocument>();
 
