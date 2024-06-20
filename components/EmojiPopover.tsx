@@ -29,40 +29,42 @@ export function EmojiPopover() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
     <div>
       <Popover>
         <PopoverTrigger asChild>
-          <Button size={'icon'} className="rounded-full">
-            {
-              loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <MdEmojiEmotions size="24px" />
-            }
-
+          <Button size={"icon"} className="rounded-full">
+            {loading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <MdEmojiEmotions size="24px" />
+            )}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-80">
           <div className="flex gap-4 flex-wrap items-center">
-            {
-              EmojiArray.map((emoji, idx) => {
-                return (
-                  <div key={idx} onClick={() => handleSendEmoji(emoji.src)} className="cursor-pointer scale-90 hover:scale-110 transition-transform duration-100">
-                    <Image
-                      className="mix-blend-multiply"
-                      src={emoji.src}
-                      alt={emoji.alt}
-                      width={35}
-                      height={35}
-                    />
-                  </div>
-                )
-              })
-            }
+            {EmojiArray.map((emoji, idx) => {
+              return (
+                <div
+                  key={idx}
+                  onClick={() => handleSendEmoji(emoji.src)}
+                  className="cursor-pointer scale-90 hover:scale-110 transition-transform duration-100"
+                >
+                  <Image
+                    className="mix-blend-multiply"
+                    src={emoji.src}
+                    alt={emoji.alt}
+                    width={35}
+                    height={35}
+                  />
+                </div>
+              );
+            })}
           </div>
         </PopoverContent>
       </Popover>
-
     </div>
-  )
+  );
 }
