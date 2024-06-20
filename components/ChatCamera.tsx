@@ -16,7 +16,10 @@ const ChatCamera = () => {
             setSelectedFile(dataUrl);
         }
     }
-    
+    const closeDialog = () => {
+        setSelectedFile("");
+        setStep(0);
+    };
 
     
 }
