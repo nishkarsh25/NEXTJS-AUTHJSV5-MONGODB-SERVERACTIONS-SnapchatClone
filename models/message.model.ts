@@ -12,4 +12,26 @@ export interface MessageDocument extends MessageInterface, Document{
     createdAt:Date,
     updatedAt:Date
 }
-const messageModel = new mongoose.Schema<MessageDocument>();
+const messageModel = new mongoose.Schema<MessageDocument>({
+    senderId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    },
+    receiverId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    },
+    content:{
+        type:String,
+        required:true,
+    },
+    messageType:{
+        type:String,
+        required:true,
+        enum:['text', 'image']
+    },
+    opened:{
+        type:Boolean,
+        default:false
+    }
+});
