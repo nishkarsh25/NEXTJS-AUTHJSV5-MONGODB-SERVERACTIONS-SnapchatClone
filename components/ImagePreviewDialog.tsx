@@ -10,7 +10,18 @@ import {
 import Image from 'next/image'
 
 const ImagePreviewDialog = (
-  ) => {
+  {
+    selectedFile,
+    close,
+    imageChange,
+    setStep
+  }:
+    {
+      selectedFile: any,
+      close: any,
+      imageChange: any,
+      setStep: any
+    }) => {
  
   
 }
