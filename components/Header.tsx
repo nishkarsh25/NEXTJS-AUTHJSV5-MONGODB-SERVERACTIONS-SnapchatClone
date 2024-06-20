@@ -7,4 +7,9 @@ import { auth } from '@/auth';
 import { PiChatCircleDots } from "react-icons/pi";
 import Link from 'next/link';
 
+const Header = async () => {
+  const authUser = await auth();
+
+  
+}
 
