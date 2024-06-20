@@ -22,3 +22,4 @@ const FriendSkeleton = () => {
     )
 }
 
+export default FriendSkeleton
