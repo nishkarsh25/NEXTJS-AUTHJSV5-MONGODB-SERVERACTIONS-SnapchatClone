@@ -46,6 +46,23 @@ const Friend = ({ user }: { user: any }) => {
         };
     };
 
-    
+    return (
+        <Link href={`/chat/${user._id}`} className='flex justify-between items-center border-b-2 cursor-pointer border-[#E3E6E8] hover:bg-[#E3E6E8] p-3 rounded-sm my-2'>
+            <div className='flex gap-2'>
+                <Avatar>
+                    <AvatarImage src={user.participants[0].profilePhoto} alt="@shadcn" />
+                </Avatar>
+                <div>
+                    <h1 className='font-medium'>{user.participants[0].fullname}</h1>
+                    <p className={`${messageStatus === "New Snap" ? 'text-purple-600' : null} flex gap-1 text-xs font-bold text-gray-500`}>
+                        <span className={`${messageStatus === "New Snap" ? 'hidden' : null}`}>{icon}</span>
+                        {
+                            messageStatus === "New Snap" ? <span className='font-bold'>{messageStatus} 🔥</span> : <span>{messageStatus} - {formattedDate}</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </Link>
+    )
 }
 
