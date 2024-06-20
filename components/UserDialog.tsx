@@ -17,7 +17,16 @@ import { useRouter } from 'next/navigation'
  
 
 const UserDialog = (
-  ) => {
+  {
+    selectedFile,
+    close,
+    onPreview
+  }:
+    {
+      selectedFile: string,
+      close: () => void,
+      onPreview: () => void
+    }) => {
 
   
   
