@@ -60,3 +60,4 @@ const ChatCamera = () => {
     )
 }
 
+export default ChatCamera
