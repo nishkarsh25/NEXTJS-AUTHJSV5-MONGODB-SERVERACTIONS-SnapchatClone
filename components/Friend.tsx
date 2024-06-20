@@ -18,7 +18,33 @@ const Friend = ({ user }: { user: any }) => {
     let messageStatus: string;
     let icon: JSX.Element;
     
-    
+    if (amISender) {
+        messageStatus = isMessageOpened ? 'Opened' : 'Sent';
+        icon = lastMessageType === 'text'
+            ?
+            (
+                isMessageOpened ? <IoSend size={'16px'} className='text-[#00b4d8]' /> : <IoSendOutline size={'16px'} className='text-[#00b4d8]' />
+            ) :
+            (
+                isMessageOpened ? <RiCheckboxBlankFill size={'16px'} className='text-red-500'/> : <MdCheckBoxOutlineBlank size={'16px'} className='text-red-500'/>
+            )
+    } else {
+        if (!lastMessage) {
+            icon = <RiCheckboxBlankFill />
+            messageStatus = "New Snap"
+        } else {
+            messageStatus = isMessageOpened ? "Received" : "Show Message";
+            icon = lastMessageType === "text"
+                ?
+                (
+                    !isMessageOpened ? <RiCheckboxBlankFill /> : <MdCheckBoxOutlineBlank />
+                )
+                :
+                (
+                    !isMessageOpened ? <RiCheckboxBlankFill /> : <MdCheckBoxOutlineBlank />
+                )
+        };
+    };
 
     
 }
