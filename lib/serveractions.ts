@@ -14,6 +14,43 @@ cloudinary.config({
     api_secret:process.env.API_SECRET
 })
 
-
+export const sendSnapMessage = async (
+    content:string,
+    receiverId:string,
+    messageType: "image" | "text" 
+) => {
+    noStore();
+    try {
+        const authUser = await auth(); 
+        const senderId = authUser?.user?._id;
+        let uploadResponse;
+        if(messageType === "image"){ 
+            uploadResponse = await cloudinary.uploader.upload(content)
+        }
+        const newMessage : MessageDocument = await Message.create({
+            senderId,
+            receiverId,
+            content : uploadResponse?.secure_url || content,
+            messageType
+        });
+        let chat = await Chat.findOne({
+            participants:{$all:[senderId, receiverId]}
+        }) 
+        if(!chat){
+            chat = await Chat.create({
+                participants:[senderId, receiverId],
+                messages:[newMessage._id],
+            });
+        }else{
+            chat.messages.push(newMessage._id);
+            await chat.save();
+        }
+        revalidatePath(`/chat/${receiverId}`);
+        return JSON.parse(JSON.stringify(newMessage));
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
 
 
