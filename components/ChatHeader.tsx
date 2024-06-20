@@ -36,7 +36,7 @@ const ChatHeader = ({ userProfile }: { userProfile: any }) => {
     )
 }
 
-
+export default ChatHeader
 
 const SubmitButton = () => {
     const { pending } = useFormStatus();
