@@ -34,4 +34,4 @@ const messageModel = new mongoose.Schema<MessageDocument>({
         type:Boolean,
         default:false
     }
-});
+}, {timestamps:true});
