@@ -32,5 +32,5 @@ const userModel = new mongoose.Schema<UserDocument>({
         type:String,
         default:""
     }
-});
+}, {timestamps:true});
 
