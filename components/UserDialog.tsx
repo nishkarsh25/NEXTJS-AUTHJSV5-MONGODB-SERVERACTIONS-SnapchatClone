@@ -114,4 +114,4 @@ const UserDialog = (
     </Dialog>
   )
 }
-
+export default UserDialog;
