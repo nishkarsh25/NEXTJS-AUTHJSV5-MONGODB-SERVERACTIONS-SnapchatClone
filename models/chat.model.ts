@@ -8,4 +8,4 @@ interface ChatDocument extends ChatInterface, Document{
     createdAt:Date,
     updatedAt:Date
 }
-
+const chatModel = new mongoose.Schema<ChatDocument>();
