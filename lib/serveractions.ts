@@ -78,3 +78,13 @@ export const deleteChatMessages = async (userId:string) => {
     }
     redirect("/chat");
 }
+export const logoutHandler = async () => { 
+    try {
+        await signOut(); 
+    } catch (error) {
+        console.log(error);
+        throw error;
+        
+    }
+    redirect("/login");
+}
