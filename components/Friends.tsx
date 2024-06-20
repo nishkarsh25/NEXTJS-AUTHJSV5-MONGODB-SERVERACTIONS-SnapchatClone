@@ -6,4 +6,9 @@ import { getSidebarUsers } from '@/lib/userdata';
 // const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
  
 
+const Friends = async () => { 
+  
+  
 
+  
+}
