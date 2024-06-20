@@ -13,5 +13,24 @@ export interface UserDocument extends UserInterface, Document{
     updatedAt:Date
 }
 
-const userModel = new mongoose.Schema<UserDocument>();
+const userModel = new mongoose.Schema<UserDocument>({
+    username:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    fullname:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    profilePhoto:{
+        type:String,
+        default:""
+    }
+});
 
