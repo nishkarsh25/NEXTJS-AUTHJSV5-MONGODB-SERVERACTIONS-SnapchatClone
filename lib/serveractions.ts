@@ -8,20 +8,8 @@ import { revalidatePath } from "next/cache";
 import connectDB from "./db";
 import { redirect } from "next/navigation";
 
-cloudinary.config({
-    cloud_name:process.env.CLOUD_NAME,
-    api_key:process.env.API_KEY,
-    api_secret:process.env.API_SECRET
-})
 
 
-export const logoutHandler = async () => { 
-    try {
-        await signOut(); 
-    } catch (error) {
-        console.log(error);
-        throw error;
-        
-    }
-    redirect("/login");
-}
+
+
+
