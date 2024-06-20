@@ -16,3 +16,4 @@ const ChattingPage = async ({params}:{params:{id:string}}) => {
   )
 }
 
+export default ChattingPage
