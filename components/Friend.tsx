@@ -66,3 +66,4 @@ const Friend = ({ user }: { user: any }) => {
     )
 }
 
+export default Friend
