@@ -28,7 +28,10 @@ const UserDialog = (
       onPreview: () => void
     }) => {
 
-  
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [sendMessageLoading, setSendMessageLoading] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<UserDocument>();
   
 
   
