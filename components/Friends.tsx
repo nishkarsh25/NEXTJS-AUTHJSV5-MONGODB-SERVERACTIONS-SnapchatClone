@@ -12,5 +12,16 @@ const Friends = async () => {
   const otherUsers:any =  authUser?.user ? await getSidebarUsers(authUser?.user?._id) : [];
   
 
-  
+  return (
+    <div className='flex-1 overflow-y-auto '>
+      {
+        otherUsers?.map((user: any) => {
+          return (
+            <Friend key={user._id} user={user}/>
+          )
+        })
+      }
+
+    </div>
+  )
 }
