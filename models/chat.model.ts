@@ -21,4 +21,4 @@ const chatModel = new mongoose.Schema<ChatDocument>({
             ref: 'Message'
         }
     ]
-});
+}, { timestamps: true });
