@@ -38,3 +38,13 @@ const ChatHeader = ({ userProfile }: { userProfile: any }) => {
 
 
 
+const SubmitButton = () => {
+    const { pending } = useFormStatus();
+    return (
+        <Button variant="destructive">
+            {
+                !pending ? "Clear Chat" : <Button variant={'destructive'}><Loader2 className="mr-2 h-4 w-4 animate-spin" />Please Wait</Button>
+            }
+        </Button>
+    )
+}
