@@ -38,3 +38,4 @@ const ChatSidebar = async () => {
     )
 }
 
+export default ChatSidebar
