@@ -8,7 +8,10 @@ import { Button } from './ui/button';
 import { Loader2 } from 'lucide-react';
 
 const ChatInput = () => {
-    
+    const [inputText, setInputText] = useState("");
+    const [loading, setLoading] = useState(false);
+    const params = useParams<{ id: string }>();
+    const receiverId = params.id;
 
     
     
