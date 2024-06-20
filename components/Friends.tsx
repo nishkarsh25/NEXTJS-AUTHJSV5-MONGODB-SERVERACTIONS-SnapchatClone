@@ -25,3 +25,4 @@ const Friends = async () => {
     </div>
   )
 }
+export default Friends
