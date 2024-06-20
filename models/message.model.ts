@@ -12,4 +12,4 @@ export interface MessageDocument extends MessageInterface, Document{
     createdAt:Date,
     updatedAt:Date
 }
-
+const messageModel = new mongoose.Schema<MessageDocument>();
