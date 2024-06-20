@@ -7,7 +7,9 @@ import { getSidebarUsers } from '@/lib/userdata';
  
 
 const Friends = async () => { 
-  
+  const authUser = await auth();
+  // sleep(1000);
+  const otherUsers:any =  authUser?.user ? await getSidebarUsers(authUser?.user?._id) : [];
   
 
   
