@@ -6,7 +6,8 @@ import React from 'react'
 const ChattingPage = async ({params}:{params:{id:string}}) => {
   let userProfile = await getUserProfile(params.id);
   userProfile = JSON.stringify(userProfile);
-  
+  const authUser = await auth();
+  const messages = authUser ? await getMessages(authUser?.user?._id, params.id) : [];
  
   
 }
