@@ -10,7 +10,13 @@ import Link from 'next/link';
 
 
 const Friend = ({ user }: { user: any }) => { 
-    
+    const lastMessage = user.lastMessage;
+    const lastMessageType = lastMessage?.messageType;
+    const formattedDate = lastMessage ? formatDate(lastMessage?.createdAt) : formatDate(new Date());
+    const amISender = lastMessage && lastMessage?.senderId?._id !== user.participants[0]._id;
+    const isMessageOpened =  lastMessage?.opened;
+    let messageStatus: string;
+    let icon: JSX.Element;
     
     
 
