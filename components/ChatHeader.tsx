@@ -10,7 +10,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { Loader2 } from 'lucide-react';
 
 
-const ChatHeader = () => {
+const ChatHeader = ({ userProfile }: { userProfile: any }) => {
     
 
     
