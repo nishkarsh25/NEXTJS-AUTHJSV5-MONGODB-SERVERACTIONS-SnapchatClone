@@ -9,3 +9,4 @@ const Error = ({error}:{error:Error}) => {
   )
 }
 
+export default Error
