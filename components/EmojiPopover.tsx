@@ -14,7 +14,10 @@ import { sendSnapMessage } from "@/lib/serveractions";
 import { Loader2 } from "lucide-react";
 
 export function EmojiPopover() {
-  
+  const [loading, setLoading] = useState(false);
+  const popoverRef = useRef<HTMLButtonElement>(null);
+  const params = useParams<{ id: string }>();
+  const id = params.id;
   
   
 }
